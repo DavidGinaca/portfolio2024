@@ -7,26 +7,16 @@
             </div>
         </div>
 
-        <form class="form" [formGroup]="FormGroup" >
-            <div class="col-10 mx-auto mt-4">
+        <form class="form" [formGroup]="data">
+                <div class="col-10 mx-auto mt-4">
                 <label for="nombres" class="form-label ">Nombre: </label>
                 <input type="text" class="form-control fst-italic " id="nombres" placeholder="Ingresa tu nombre" formControlName="name">
-                <div>
-                    @if (FormGroup.invalid && (FormGroup.dirty || FormGroup.touched)) {
-                        <div class="alert alert-danger">El nombre es obligatorio</div>
-                    }
-                </div>     
+       
              </div>
 
             <div class="col-10 mx-auto mt-4 ">
                 <label for="email" class=" form-label ">E-mail:</label>
-                <input type="email" class="form-control fst-italic" id="email" placeholder="Ingresa tu email" formControlName="email">
-                <div>
-                    @if (FormGroup.invalid && (FormGroup.dirty || FormGroup.touched)) {
-                        <div class="alert alert-danger">No olvides tu email</div>
-                    }
-                </div>  
-                
+                <input type="email" class="form-control fst-italic" id="email" placeholder="Ingresa tu email" formControlName="email">           
                 
             </div>
 
@@ -35,11 +25,11 @@
 
                     <label for="mensaje" class="form-label"> Mensaje: </label>
                     <textarea class="form-control fst-italic " rows="3" placeholder="Mensaje"
-                        aria-describedby="maximos-caracteres" formControlName="mesaje"></textarea>
+                        aria-describedby="maximos-caracteres" formControlName="message"></textarea>
                     <div id="maximos-caracteres" class="form-text fst-italic">
                         Máx 480 caracteres
                     </div>
-                    <button type="submit" class="btn btn-primary mt-4" (click)="enviarForm()"> Enviar formulario </button>                    
+                    <button type="submit" class="btn btn-primary mt-4" (click)="SendEmail()"> Enviar formulario </button>                    
                 </div>
             </div>
         </form>

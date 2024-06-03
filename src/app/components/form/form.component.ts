@@ -1,5 +1,9 @@
+
+
+import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import Notiflix from 'notiflix';
 
 @Component({
   selector: 'app-form',
@@ -10,16 +14,34 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 })
 export class FormComponent {
 
-  private readonly formBuilder= inject(FormBuilder);
+  data: FormGroup;
 
-  FormGroup= this.formBuilder.nonNullable.group({
-    name: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    mesaje:''
-  });
+  constructor(private http: HttpClient) {
 
-  enviarForm(): void {  
-    console.log(this.formBuilder.group.name.valueOf);  
+    this.data = new FormGroup({
+      name: new FormControl('',[Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      message: new FormControl('', [Validators.required])
+    });
+  }
+
+  SendEmail(): void {
+
+    Notiflix.Loading.standard('Enviando...');
+
+    let params ={
+     toUser: this.data.value.name,
+     subject: this.data.value.email,
+     message: this.data.value.message
+    }
+
+    this.http.post('http://localhost:8090/send/Message', params).subscribe(resp=>{
+      console.log(resp);
+      this.data.reset();            
+      Notiflix.Loading.remove();
+      Notiflix.Notify.success("mensaje enviado");
+    });
+    
   };
 
 }
