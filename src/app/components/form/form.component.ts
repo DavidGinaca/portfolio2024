@@ -27,7 +27,7 @@ export class FormComponent {
 
   SendEmail(): void {
 
-    Notiflix.Loading.standard('Enviando...');
+    Notiflix.Loading.standard('Enviando... esta acción puede tardar');
 
     let params ={
      toUser: this.data.value.name,
@@ -35,7 +35,7 @@ export class FormComponent {
      message: this.data.value.message
     }
 
-    this.http.post('http://localhost:8090/send/Message', params).subscribe(resp=>{
+    this.http.post('https://back-envio-de-emails.onrender.com', params).subscribe(resp=>{
       console.log(resp);
       this.data.reset();            
       Notiflix.Loading.remove();

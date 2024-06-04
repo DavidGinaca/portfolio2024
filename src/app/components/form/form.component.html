@@ -7,17 +7,27 @@
             </div>
         </div>
 
-        <form class="form" [formGroup]="data">
-                <div class="col-10 mx-auto mt-4">
+        <form class="form needs-validation" [formGroup]="data">
+            <div class="col-10 mx-auto mt-4">
                 <label for="nombres" class="form-label ">Nombre: </label>
-                <input type="text" class="form-control fst-italic " id="nombres" placeholder="Ingresa tu nombre" formControlName="name">
-       
-             </div>
+                <input type="text" class="form-control fst-italic " id="nombres" placeholder="Ingresa tu nombre" formControlName="name" required>
+                <div class="valid-feedback">
+                    Datos correctos
+                </div>
+                <div class="invalid-feedback">
+                    El campo es obligatorio
+                </div>
+            </div>
 
             <div class="col-10 mx-auto mt-4 ">
                 <label for="email" class=" form-label ">E-mail:</label>
-                <input type="email" class="form-control fst-italic" id="email" placeholder="Ingresa tu email" formControlName="email">           
-                
+                <input type="email" class="form-control fst-italic" id="email" placeholder="Ingresa tu email" formControlName="email">
+                <div class="valid-feedback">
+                    Datos correctos
+                </div>
+                <div class="invalid-feedback">
+                    El campo es obligatorio
+                </div>
             </div>
 
             <div>
@@ -29,7 +39,8 @@
                     <div id="maximos-caracteres" class="form-text fst-italic">
                         Máx 480 caracteres
                     </div>
-                    <button type="submit" class="btn btn-primary mt-4" (click)="SendEmail()"> Enviar formulario </button>                    
+                    <button type="submit" class="btn btn-primary mt-4" (click)="SendEmail()"> Enviar formulario
+                    </button>
                 </div>
             </div>
         </form>
