@@ -12,8 +12,8 @@ export class HeaderComponent {
   constructor() { }
 
   downloadPDF() {
-    const pdfUrl = 'https://drive.google.com/file/d/1oVYu8wUDnmJ7288hCT2yhXh2cRrMYh-E/view?usp=sharing';
-    const pdfName = 'Ginaca David CV.pdf';  
+    const pdfUrl = 'https://drive.google.com/file/d/1qUDrCrL6kS4sTN1HDp2-Hw_ae7Vrge0x/view?usp=sharing';
+    const pdfName = 'Ginaca Nieto David CV.pdf';  
 
     const link = document.createElement('a');
     link.href = pdfUrl;
