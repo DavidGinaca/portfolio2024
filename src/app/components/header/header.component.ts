@@ -12,7 +12,7 @@ export class HeaderComponent {
   constructor() { }
 
   downloadPDF() {
-    const pdfUrl = 'https://drive.google.com/file/d/1qUDrCrL6kS4sTN1HDp2-Hw_ae7Vrge0x/view?usp=sharing';
+    const pdfUrl = 'https://drive.google.com/file/d/1l-QSsdMCmUuh41Rnz6C81c45Ass7w_b5/view?usp=sharing';
     const pdfName = 'Ginaca Nieto David CV.pdf';  
 
     const link = document.createElement('a');
